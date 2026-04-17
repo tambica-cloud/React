@@ -8,7 +8,7 @@ function Home() {
     useEffect(() => {
         appwriteService.getPosts().then((posts) => {
             if (posts) {
-                setPosts(posts?.documents || [])
+                setPosts(posts.rows || [])
             }
         })
     }, [])
@@ -27,7 +27,9 @@ function Home() {
                 </Container>
         </div>
     )
-    return (
+    
+   }
+   return (
         <div className="w-full py-8">
             <Container>
                 <div className="flex flex-wrap">
@@ -40,7 +42,6 @@ function Home() {
             </Container>
         </div>
     )
-   }
 }
 
 export default Home
